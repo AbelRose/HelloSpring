@@ -1,4 +1,4 @@
-package com.matrix.spring.di;
+package com.matrix.spring.day01.di;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;

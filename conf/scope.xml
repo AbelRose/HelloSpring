@@ -4,8 +4,9 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="factory" class="com.matrix.spring.day01.factorybean.MyFactory">
-        <!-- 工厂里没有属性可以不用写property -->
+    <bean id="student" class="com.matrix.spring.day02.ioc.scope.Student" scope="singleton">
+        <property name="sid" value="1001"></property>
+        <property name="sname" value="matrix"></property>
     </bean>
-
+    
 </beans>

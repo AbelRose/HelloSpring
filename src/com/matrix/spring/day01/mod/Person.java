@@ -1,4 +1,4 @@
-package com.matrix.spring.mod;
+package com.matrix.spring.day01.mod;
 
 public class Person {
 

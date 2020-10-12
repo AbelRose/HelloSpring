@@ -7,21 +7,21 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.0.xsd">
 
-	<bean id="s1" class="com.matrix.spring.di.Student">
-		<property name="id" value="10010"/>
+	<bean id="s1" class="com.matrix.spring.day01.di.Student">
+		<property name="id" value="10010"/> <!-- property就是通过set注入，比较常用 -->
 		<property name="name" value="张三"/>
 		<property name="age" value="23"/>
 		<property name="sex" value="男"/>
 	</bean>
 	
-	<bean id="s2" class="com.matrix.spring.di.Student">
-		<constructor-arg value="10086"></constructor-arg> <!-- 通过构造器赋值 自动去匹配相对应的属性 -->
+	<bean id="s2" class="com.matrix.spring.day01.di.Student">
+		<constructor-arg value="10086"></constructor-arg> <!-- 通过构造器赋值 自动去匹配相对应的属性 必须要有对应的构造方法，不是很常用 -->
 		<constructor-arg value="李四"></constructor-arg>
 		<constructor-arg value="24"></constructor-arg>
 		<constructor-arg value="女"></constructor-arg>
 	</bean>
 	
-	<bean id="s3" class="com.matrix.spring.di.Student">
+	<bean id="s3" class="com.matrix.spring.day01.di.Student">
 		<constructor-arg value="10022"></constructor-arg>
 		<constructor-arg value="王五"></constructor-arg>
 		<constructor-arg value="90" index="2" type="java.lang.Double"></constructor-arg> <!-- index为2 表示属性是score 不是age index和type是避免类型混淆 -->
@@ -29,7 +29,7 @@
 	</bean>
 
 	<!-- xmlns:p="http://www.springframework.org/schema/p" 使用了命名空间 可以简化 -->
-	<bean id="s4" class="com.matrix.spring.di.Student"
+	<bean id="s4" class="com.matrix.spring.day01.di.Student"
 		  p:id="10033"
 		  p:name="赵六"
 		  p:age="26"
@@ -37,28 +37,28 @@
 		  p:teacher-ref="teacher">
 	</bean>
 
-	<bean id="s5" class="com.matrix.spring.di.Student">
+	<bean id="s5" class="com.matrix.spring.day01.di.Student">
 		<property name="id" value="10055"></property>
 		<property name="name" value="张三三"></property>
 		<property name="age" value="23"></property>
-		<property name="sex" value="男"></property> <!-- 字面量是指通过value 直接给属性赋值的 -->
+		<property name="sex" value="男"></property> <!-- 字面量是指通过value 直接给属性赋值的 引用的不可以直接赋值所以用到了ref -->
 		<property name="teacher" ref="teacher"></property> <!-- 在下面通过spring把Teacher(bean)注入进来 注意是ref(teacher 是引用类型是非字面量) -->
 		<property name="teacher.tname" value="小红"></property> <!-- 级联属性赋值 属性.属性 -->
 	</bean>
 
 	<!-- 在下面通过spring把Teacher注入进来 -->
-	<bean id="teacher" class="com.matrix.spring.di.Teacher">
+	<bean id="teacher" class="com.matrix.spring.day01.di.Teacher">
 		<property name="tid" value="10000"></property>
 		<property name="tname" value="小明"></property>
 	</bean>
 	
-	<bean id="s6" class="com.matrix.spring.di.Student">
+	<bean id="s6" class="com.matrix.spring.day01.di.Student">
 		<property name="id" value="10066"></property>
 		<property name="name" value="崔八"></property>
 		<property name="age" value="18"></property>
 		<property name="sex" value="男"></property>
 		<property name="teacher">
-			<bean id="tt" class="com.matrix.spring.di.Teacher">  <!-- 内部Bean  注意只属于s6这个bean 外部不能使用-->
+			<bean id="tt" class="com.matrix.spring.day01.di.Teacher">  <!-- 内部Bean  注意只属于s6这个bean 外部不能使用-->
 				<property name="tid" value="2222"></property>
 				<property name="tname" value="admin"></property>
 			</bean>
@@ -74,7 +74,7 @@
 		<property name="teacher" ref="tt"></property>
 	</bean> -->
 	
-	<bean id="t1" class="com.matrix.spring.di.Teacher">
+	<bean id="t1" class="com.matrix.spring.day01.di.Teacher">
 		<property name="tid" value="10001"></property>
 		<property name="tname" value="佟刚"></property>
 		<property name="cls">
@@ -91,7 +91,7 @@
 		</property>
 	</bean>
 	
-	<bean id="t2" class="com.matrix.spring.di.Teacher">
+	<bean id="t2" class="com.matrix.spring.day01.di.Teacher">
 		<property name="tid" value="10002"></property>
 		<property name="tname" value="婷姐"></property>
 		<property name="students">
@@ -103,14 +103,14 @@
 		</property>
 	</bean>
 	
-	<bean id="t3" class="com.matrix.spring.di.Teacher">
+	<bean id="t3" class="com.matrix.spring.day01.di.Teacher">
 		<property name="tid" value="10003"></property>
 		<property name="tname" value="admin"></property>
 		<property name="bossMap" >
 			<map>
 				<entry>
 					<key>
-						<value>10001</value> <!-- 不能直接写在key里面 -->
+						<value>10001</value> <!-- key的value不能直接写在key里面 -->
 					</key>
 					<value>佟老师</value>
 				</entry>
@@ -124,12 +124,12 @@
 		</property>
 	</bean>
 	
-	<bean id="t4" class="com.matrix.spring.di.Teacher">
+	<bean id="t4" class="com.matrix.spring.day01.di.Teacher">
 		<property name="tid" value="10004"></property>
 		<property name="tname" value="root"></property>
 		<property name="students" ref="students"></property> <!-- 使用外部引用的方式 赋值 -->
 	</bean>
-	
+
 	<util:list id="students">  <!-- 直接向list里面加入ref bean -->    <!-- xsd 相当于一个标签库 -->
 		<ref bean="s4"/> <!-- 引用集合为Students赋值 -->
 		<ref bean="s5"/>

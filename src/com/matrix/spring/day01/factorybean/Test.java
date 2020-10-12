@@ -1,4 +1,4 @@
-package com.matrix.spring.factorybean;
+package com.matrix.spring.day01.factorybean;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;

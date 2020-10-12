@@ -1,4 +1,4 @@
-package com.matrix.spring.di;
+package com.matrix.spring.day01.di;
 
 import java.util.List;
 import java.util.Map;

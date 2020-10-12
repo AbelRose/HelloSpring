@@ -1,4 +1,4 @@
-package com.matrix.spring.factorybean;
+package com.matrix.spring.day01.factorybean;
 
 public class Car {
     private String brand;
