@@ -1,13 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--suppress ALL -->
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+<!--    &lt;!&ndash; 加载资源文件到Spring中 &ndash;&gt;-->
+<!--    <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">-->
+<!--        <property name="location" value="db.properties"></property> &lt;!&ndash; 加载db.properties &ndash;&gt;-->
+<!--    </bean>-->
+
+
+    <!-- 在Spring中 自带的加载properties方式 -->
+    <context:property-placeholder location="db.properties"/>
 
     <bean id="datasource" class="com.alibaba.druid.pool.DruidDataSource">
-        <property name="driverClassName" value="com.mysql.jdbc.Driver"></property>
-        <property name="url" value="jdbc:mysql://localhost:3306/test"></property>
-        <property name="username" value="root"></property>
-        <property name="password" value="root"></property>
+<!--        <property name="driverClassName" value="com.mysql.jdbc.Driver"></property>-->  <!-- 没有使用properties的时候 -->
+        <property name="driverClassName" value="${jdbc.driver}"></property> <!-- 从资源文件中获取值 -->
+        <property name="url" value="${jdbc.url}"></property>
+        <property name="username" value="${jdbc.username}"></property>
+        <property name="password" value="${jdbc.password}"></property>
     </bean>
 
 

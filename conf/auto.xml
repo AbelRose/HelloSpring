@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--suppress ALL -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--
+		autowire:根据某种策略自动为非字面量属性赋值
+		autowire="byName|byType"
+		byName:通过属性名和spring容器中bean的id进行比较，若一致则可直接赋值
+		byType:通过spring容器中bean的类型，为兼容性的属性赋值
+			   在使用byType的过程中，要求spring容器中只能有一个能为属性赋值的bean
+		选用建议: 当设置autowire属性，会作用于该bean中所有的非字面量属性，因此谁都不用
+	 -->
+
+    <bean id="emp" class="com.matrix.spring.day02.ioc.autoassem.Emp" autowire="byName"> <!-- autowire="byType"是按照类型赋值的  找到一个能够为他赋值的对象进行赋值 可以给他的父类或者接口赋值(称为 兼容)-->
+        <property name="eid" value="1001"></property>
+        <property name="ename" value="AbelRose"></property>
+        <property name="car" ref="car"></property> <!--  引用的方式 autowire="byName" 可以不写这两行 但是下面这个car bean的id 要和emp中car的属性一样-->
+        <property name="dept" ref="dept"></property> <!--  引用的方式 autowire="byName" 可以不写这两行-->
+
+    </bean>
+
+    <bean id="car" class="com.matrix.spring.day02.ioc.autoassem.Car">
+        <property name="cid" value="666"></property>
+        <property name="cname" value="Mustang"></property>
+    </bean>
+
+    <bean id="dept" class="com.matrix.spring.day02.ioc.autoassem.Dept">
+        <property name="did" value="11111"></property>
+        <property name="dname" value="Sherlock"></property>
+
+    </bean>
+
+
+</beans>
