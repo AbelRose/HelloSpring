@@ -18,7 +18,7 @@ public class Test {
 		System.out.println(us);
 		UserDao ud = ac.getBean("userDaoImpl", UserDaoImpl.class);
 		System.out.println(ud);
+		uc.addUser();
 
     }
-
 }
