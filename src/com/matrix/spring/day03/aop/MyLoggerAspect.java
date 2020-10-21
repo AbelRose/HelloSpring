@@ -3,13 +3,22 @@ package com.matrix.spring.day03.aop;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.Signature;
 import org.aspectj.lang.annotation.*;
+import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
 import java.util.Arrays;
 
 @Component
 @Aspect // 用来标注当前类为切面
+@Order(1) // 设置优先级 值越小优先级越高，默认值为int的最大值
 public class MyLoggerAspect {
+
+    @Pointcut(value = "execution(* com.matrix.spring.day03.aop.*(..))")
+    public void test() {
+        // 重用切入点定义
+
+    }
+
 
     /**
      * 用于存储横切关注点的类 即切面
@@ -28,7 +37,7 @@ public class MyLoggerAspect {
      */
 
 //    @Before(value = "execution(public int com.matrix.spring.day03.aop.impl.CalImpl.add(int, int))")
-    @Before(value = "execution(* com.matrix.spring.day03.aop.*.*(..))") // public int 对应一个 * || CalImpl 对应一个 * || add 对用一个* || int , int 对应两个..
+    @Before(value = "test()") // public int 对应一个 * || CalImpl 对应一个 * || add 对用一个* || int , int 对应两个..
     public void beforeMethod(JoinPoint joinPoint) {
         Object[] args = joinPoint.getArgs();
 //        System.out.println(Arrays.toString(args));
@@ -63,4 +72,30 @@ public class MyLoggerAspect {
     public void afterThrowingMethod(Exception ex) {
         System.out.println("有异常了...: " + ex);
     }
+
+    /*@Around(value="execution(* com.atguigu.spring.aop.*.*(..))")
+	public Object aroundMethod(ProceedingJoinPoint joinPoint) {
+
+		Object result = null;
+
+		try {
+			//前置通知
+			System.out.println("前置通知");
+			result = joinPoint.proceed();//执行方法
+			//返回通知
+			System.out.println("返回通知");
+			return result;
+		} catch (Throwable e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			//异常通知
+			System.out.println("异常通知");
+		} finally {
+			//后置通知
+			System.out.println("后置通知");
+		}
+
+		return -1;
+	}*/
+
 }

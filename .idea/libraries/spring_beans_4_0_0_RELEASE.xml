@@ -13,11 +13,15 @@
       <root url="jar://D:/JavaPRO/03-框架/01-Spring/Spring-01/资料/资料/03_AspectJ/com.springsource.net.sf.cglib-2.2.0.jar!/" />
       <root url="jar://D:/JavaPRO/03-框架/01-Spring/Spring-01/资料/资料/03_AspectJ/com.springsource.org.aopalliance-1.0.0.jar!/" />
       <root url="jar://D:/JavaPRO/03-框架/01-Spring/Spring-01/资料/资料/03_AspectJ/com.springsource.org.aspectj.weaver-1.6.8.RELEASE.jar!/" />
+      <root url="jar://D:/JavaPRO/03-框架/01-Spring/Spring-01/资料/资料/01_Spring开发包/spring-framework-4.0.0.RELEASE/libs/spring-jdbc-4.0.0.RELEASE.jar!/" />
+      <root url="jar://D:/JavaPRO/03-框架/01-Spring/Spring-01/资料/资料/01_Spring开发包/spring-framework-4.0.0.RELEASE/libs/hamcrest-core-1.1.jar!/" />
+      <root url="jar://D:/JavaPRO/03-框架/01-Spring/Spring-01/资料/资料/01_Spring开发包/spring-framework-4.0.0.RELEASE/libs/junit-4.12.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>
       <root url="jar://$USER_HOME$/.ideaLibSources/spring-beans-4.0.0.RELEASE-sources.jar!/" />
       <root url="jar://$USER_HOME$/.ideaLibSources/druid-1.1.9-sources.jar!/" />
+      <root url="jar://D:/JavaPRO/03-框架/01-Spring/Spring-01/资料/资料/01_Spring开发包/spring-framework-4.0.0.RELEASE/libs/hamcrest-core-1.1.jar!/" />
     </SOURCES>
   </library>
 </component>
