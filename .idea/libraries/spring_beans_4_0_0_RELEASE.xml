@@ -16,6 +16,8 @@
       <root url="jar://D:/JavaPRO/03-框架/01-Spring/Spring-01/资料/资料/01_Spring开发包/spring-framework-4.0.0.RELEASE/libs/spring-jdbc-4.0.0.RELEASE.jar!/" />
       <root url="jar://D:/JavaPRO/03-框架/01-Spring/Spring-01/资料/资料/01_Spring开发包/spring-framework-4.0.0.RELEASE/libs/hamcrest-core-1.1.jar!/" />
       <root url="jar://D:/JavaPRO/03-框架/01-Spring/Spring-01/资料/资料/01_Spring开发包/spring-framework-4.0.0.RELEASE/libs/junit-4.12.jar!/" />
+      <root url="jar://D:/JavaPRO/03-框架/01-Spring/Spring-01/资料/资料/01_Spring开发包/spring-framework-4.0.0.RELEASE/libs/spring-orm-4.0.0.RELEASE.jar!/" />
+      <root url="jar://D:/JavaPRO/03-框架/01-Spring/Spring-01/资料/资料/01_Spring开发包/spring-framework-4.0.0.RELEASE/libs/spring-tx-4.0.0.RELEASE.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>
