@@ -10,4 +10,8 @@ public class BookController {
     @Autowired
     private BookService bookService;
 
+    public void buyBook() {
+        bookService.buyBook("1", "1001");
+    }
+
 }
